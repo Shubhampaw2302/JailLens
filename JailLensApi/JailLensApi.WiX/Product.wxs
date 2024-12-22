@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="JailLensApp.WiX" Language="1033" Version="1.0.0.0" Manufacturer="JailLens" UpgradeCode="3a820547-b86e-4319-8139-09aa0c822022">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="JailLensApp.WiX" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="JailLensApp.WiX" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			 <Component Id="JailLensWiX" Guid="c08c008d-6029-4b7d-896e-81dee4623958"> 
+				 <File Id="JailLensWiX" Name="*" Source="D:\MyProjects\JailLens\JailLensApp\src\"></File>
+			 </Component> 
+		</ComponentGroup>
+	</Fragment>
+</Wix>

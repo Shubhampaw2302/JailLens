@@ -1,0 +1,81 @@
+<div>
+  <div id="registerForm" [ngClass]="openCamera ? 'container cameraOpen' : 'container'">
+    <form *ngIf="!openCamera">
+        <label><img class="handcuffed" src="assets/Images/{{ imageName }}.png" alt=""></label>
+        <div class="row">
+            <div class="col-lg-6">
+              <label for="fname">First Name</label>
+              <input type="text" name="fname" [(ngModel)]="firstName" class="form-control" placeholder="First name" aria-label="First name" [disabled]="isRelease">
+            </div>
+            <div class="col-lg-6">
+              <label for="lname">Last Name</label>
+              <input type="text" name="lname" [(ngModel)]="lastName" class="form-control" placeholder="Last name" aria-label="Last name" [disabled]="isRelease">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <label style="display: block;">Gender</label>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineRadio1">
+                    <input class="form-check-input" [(ngModel)]="gender" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="M" [disabled]="isRelease">
+                    Male
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineRadio2">
+                    <input class="form-check-input" [(ngModel)]="gender" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="F" [disabled]="isRelease">
+                    Female
+                </label>
+              </div>
+          </div>
+          <div class="col-lg-3">
+            <label for="DOB">Date of Birth</label>
+            <input type="date" [(ngModel)]="dob" name="DOB" class="form-control" [disabled]="isRelease">
+          </div>
+          <div class="col-lg-3">
+            <label for="Admit">Admit Date</label>
+            <input type="date" [(ngModel)]="admitDate" name="Admit" class="form-control" [disabled]="isRelease">
+          </div>
+        </div>
+        <div class="row">
+          <div [ngClass]="isRelease ? 'col-lg-9' : 'col-lg-12'">
+            <label for="inTakeId" class="form-label">Intake ID</label>
+            <input class="form-control" type="text" [(ngModel)]="inTakeId" name="inTakeId" id="inTakeId" placeholder="Intake ID" [disabled]="isRelease">
+          </div>
+          <div *ngIf="isRelease" class="col-lg-3" style="margin-top: 8px;">
+            <label for="Release">Release Date</label>
+            <input type="date" [(ngModel)]="releaseDate" name="Release" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 mb-3">
+            <label for="formFileSm" class="form-label">Upload Image</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file" (change)="onFileSelected($event)">
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-success capture" (click)="onCapture()">Capture</button>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="openCamera">
+        <div class="col-md-12 videoDisplay">
+          <webcam
+            [trigger]="invokeObservable"
+            (imageCapture)="captureImg($event)"
+          ></webcam>
+        </div>
+        <div class="videoBtn">
+          <button class="btn btn-success" (click)="getSnapshot()">
+            Capture Image
+          </button>
+          <button class="btn btn-danger" (click)="openCamera = false">Cancel</button>
+        </div>
+      </div>
+      <div *ngIf="imageSource">
+        <img class="uploaded-image" [src]="imageSource">
+      </div>
+      <div *ngIf="!openCamera">
+        <button type="submit" class="btn btn-primary" (click)="submitInmateDetails()">{{ buttonName }}</button>
+      </div>
+  </div>
+</div>

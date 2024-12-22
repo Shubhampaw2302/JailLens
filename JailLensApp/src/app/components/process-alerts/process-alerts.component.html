@@ -1,0 +1,22 @@
+<div class="form-body">
+    <h2>Process Alert</h2>
+    <form>
+        <div class="form-group">
+            <label for="IntakeID">Intake ID</label>
+            <input type="text" [(ngModel)]="intakeid" name="IntakeID" class="form-control" disabled>
+        </div>
+        <div class="form-group">
+            <label for="alertDescription">Alert Description</label>
+            <input type="text" [(ngModel)]="alertDescription" class="form-control" name="alertDescription" disabled>
+        </div>
+        <div class="form-group">
+            <label for="alertCategory">Alert Category</label>
+            <input class="form-control" [(ngModel)]="alertCategory" name="alertCategory" disabled>
+        </div>
+        <div class="form-group">
+            <label for="comments">Comments</label>
+            <textarea class="form-control" [(ngModel)]="comments" name="comments" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    </form>
+</div>

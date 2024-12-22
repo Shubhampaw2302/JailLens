@@ -1,0 +1,59 @@
+.container {
+    margin-top: 120px;
+    margin-bottom: auto;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 6px 5px 5px #8888;
+    background-color:white;
+}
+
+h6 {
+    margin-top: 4px;
+}
+
+.row {
+    margin: 15px auto;
+}
+
+.handcuffed {
+    height: 75px;
+    width: 75px;
+    margin-top: -40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.uploaded-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.capture {
+    margin-top: 28px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.image-buttons {
+    margin-bottom: 10px;
+}
+
+#registerForm {
+    font-weight: bold;
+}
+
+.videoBtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cameraOpen {
+    width: fit-content;
+    margin-top: 60px;
+}

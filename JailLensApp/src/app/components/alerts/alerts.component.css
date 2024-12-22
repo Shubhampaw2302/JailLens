@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+}
+  
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #dddddd;
+}
+
+td {
+    text-align: left;
+    border-left: 1px solid #e2e2e2;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e2e2e2;
+}
+
+.process {
+    margin-top:-4px;
+    padding-top:0px;
+    padding-bottom:0px;
+    height:1.6rem;
+}

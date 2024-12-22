@@ -1,0 +1,7 @@
+body {
+    background-image: url("./assets/Images/HandCuff1.png");
+    /* background-position: center; */
+    background-repeat:no-repeat;
+    background-size: cover;
+    font-family: 'Rajdhani', sans-serif;
+}

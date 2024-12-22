@@ -1,0 +1,43 @@
+<!-- <div class="container" *ngIf="!isForm">
+    <div>
+        <button class="btn btn-primary" (click)="loadAlerts()">Refresh</button>
+    </div>
+    <hr>
+    <div class="card" *ngFor="let alert of alerts">
+        <div class="card-header">
+          {{ alert.alertcategory }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ alert.intakeid }}</h5>
+          <p class="card-text">{{ alert.alertdescription }}</p>
+          <a class="btn btn-primary" (click)="onClickProcess(alert)">Process Alert</a>
+        </div>
+    </div>
+</div> -->
+
+<div class="container" *ngIf="!isForm">
+  <table>
+    <thead>
+      <tr>
+        <th>IntakeID</th>
+        <th>Alert Category</th>
+        <th>Alert Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alert of alerts">
+        <td>{{ alert.intakeid }}</td>
+        <td>{{ alert.alertcategory }}</td>
+        <td>{{ alert.alertdescription }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-primary btn-sm process" (click)="processAlert(alert)">Process</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="isForm">
+  <app-process-alerts [alertData]="formData"></app-process-alerts>
+</div>
